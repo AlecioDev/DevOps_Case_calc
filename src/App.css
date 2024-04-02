@@ -1,3 +1,13 @@
+.calculadora {
+  width: 450px;
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid #251f1f;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #313030;
+}
+
 .calculadora h1 {
   text-align: center;
   font-size: 24px;
