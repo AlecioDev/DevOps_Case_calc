@@ -23,6 +23,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-job
     steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' 
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Run Start
         run: npm start
         
@@ -32,10 +40,8 @@ jobs:
   deploy-job:
     name: Deploy
     runs-on: ubuntu-latest
-
     needs: test-job  
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
