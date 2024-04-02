@@ -16,19 +16,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
   test-job:
     name: Testes
     runs-on: ubuntu-latest
     needs: build-job
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: npm install
-
+      - name: Run Start
+        run: npm start
+        
       - name: Run tests
         run: npm test
 
@@ -36,9 +33,9 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
 
-    needs: test-job  # Garante que o deploy só acontece após os testes serem bem sucedidos
+    needs: test-job  
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
