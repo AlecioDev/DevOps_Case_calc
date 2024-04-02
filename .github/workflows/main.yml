@@ -22,9 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-job
     steps:
-      - name: Versao
-        run: npm list react
-        
       - name: Teste inicial
         run: echo "Teste Finalizado"
 
