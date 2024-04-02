@@ -1,0 +1,45 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Aqui você pode definir a branch que dispara a pipeline
+
+jobs:
+  build-job:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Adicione aqui os passos necessários para construir o seu aplicativo, como compilar, transpilar ou qualquer outra coisa que seja necessária antes dos testes.
+
+  test-job:
+    name: Testes
+    runs-on: ubuntu-latest
+
+    needs: build-job
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+  deploy-job:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    needs: test-job  # Garante que o deploy só acontece após os testes serem bem sucedidos
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Aqui você adicionaria os passos necessários para fazer o deploy, como fazer o build do seu aplicativo, configurar e implantar em seu servidor ou plataforma de hospedagem.
