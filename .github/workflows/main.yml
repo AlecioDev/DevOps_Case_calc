@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
   workflow_dispatch:
 
 jobs:
@@ -27,7 +26,7 @@ jobs:
         run: npm list react
         
       - name: Teste inicial
-        run: print "Teste Finalizado"
+        run: echo "Teste Finalizado"
 
   deploy-job:
     name: Deploy
@@ -37,4 +36,3 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
