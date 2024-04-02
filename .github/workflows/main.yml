@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # Aqui você pode definir a branch que dispara a pipeline
+      - main
 
 jobs:
   build-job:
@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      # Adicione aqui os passos necessários para construir o seu aplicativo, como compilar, transpilar ou qualquer outra coisa que seja necessária antes dos testes.
 
   test-job:
     name: Testes
@@ -42,4 +40,3 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Aqui você adicionaria os passos necessários para fazer o deploy, como fazer o build do seu aplicativo, configurar e implantar em seu servidor ou plataforma de hospedagem.
