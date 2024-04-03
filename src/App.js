@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import "./App.css"
 
-// Componente para os números
+
+
 // Componente para os números
 const Numeros = ({ onNumeroClick }) => {
   const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
@@ -69,8 +70,11 @@ const Calculadora = () => {
     setResultado(0);
   };
 
+
+
   return (
     <div className="calculadora">
+        <div><h1>Hello Word!</h1></div>
       <h1>Calculadora</h1>
       <Numeros onNumeroClick={handleNumeroClick} />
       <FuncoesMatematicas onOperadorClick={handleOperadorClick} />
