@@ -1,4 +1,4 @@
-FROM node:14-slim
+FROM node:14.17.3-alpine
 
 WORKDIR /usr/src/app
 
@@ -6,7 +6,7 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY . ./
 
 RUN npm run build
 
