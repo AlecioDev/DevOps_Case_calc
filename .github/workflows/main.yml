@@ -47,4 +47,4 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.URL_DISCORD_PUCPR }}
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"content":"Deploy da aplicação realizado com sucesso!"}' "${URL_DISCORD_PUCPR}"
+          curl -X POST -H 'Content-type: application/json' --data '{"content":"Deploy da aplicação realizado com sucesso!"}' "${DISCORD_WEBHOOK_URL}"
