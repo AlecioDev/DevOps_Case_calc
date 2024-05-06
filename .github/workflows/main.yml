@@ -16,22 +16,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        
+      - name: Build and push Docker image
+        run: |
+          docker login
+          docker build -t aleciodev/devops_case_calc:tag .
+          docker push aleciodev/devops_case_calc:tag
 
   test-job:
     name: Tests
     runs-on: ubuntu-latest
     needs: build-job
     steps:
-      - name: Using Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 20.x
-
-      - name: run install and tests
-        run:
-          npm install
-          npm run build
-          npm run test
+      - name: run test
+        run: |
+          docker run -p 8080:3000 aleciodev/devops_case_calc
 
   deploy-job:
     name: Deploy
