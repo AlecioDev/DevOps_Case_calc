@@ -41,3 +41,22 @@ jobs:
     steps:
       - name: Checkout
         run: echo "Finalizado"
+
+      - name: Enviar mensagem para o Discord em caso de deploy bem-sucedido
+        if: success()
+        uses: appleboy/discord@v1
+
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          username: 'Bot de Deploy'
+          content: 'Deploy realizado com sucesso! 🎉'
+
+
+      - name: Enviar mensagem para o Discord em caso de deploy com erro
+        if: failure()
+        uses: appleboy/discord@v1
+        
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          username: 'Bot de Deploy'
+          content: 'Deploy falhou! 😞 Erro: ${{ error.message }}'
