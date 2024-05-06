@@ -44,7 +44,5 @@ jobs:
 
       - name: Send Discord Message
         if: ${{ always() }}
-        env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.URL_DISCORD_PUCPR }}
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"content":"Deploy da aplicação realizado com sucesso!"}' "${DISCORD_WEBHOOK_URL}"
+          curl -X POST -H 'Content-type: application/json' --data '{"content":"Deploy da aplicação realizado com sucesso!"}' "https://discordapp.com/api/webhooks/1235686000949465138/butqKzrI_HIEHGU4tMRIVUC2_o0Z8rMChBZXJwcpromxTC7xtafbhsr63Edq2j6s0_mN"
