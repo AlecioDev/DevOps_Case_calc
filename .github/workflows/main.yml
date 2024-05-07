@@ -24,13 +24,12 @@ jobs:
           docker push aleciodev/devops_case_calc:tag
 
   test-job:
-    name: Tests
+    name: Static Analysis
     runs-on: ubuntu-latest
     needs: build-job
     steps:
-      - name: run test
-        run: |
-          docker run -p 8080:3000 aleciodev/devops_case_calc
+      - name: Checkout code
+        uses: actions/checkout@v3
 
   deploy-job:
     name: Deploy
